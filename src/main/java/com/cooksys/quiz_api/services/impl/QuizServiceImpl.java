@@ -104,9 +104,10 @@ public class QuizServiceImpl implements QuizService {
       return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
     Question questionToDelete = optionalQuestion.get();
-    for (Answer answer : questionToDelete.getAnswers()){
-      answerRepository.delete(answer);
-    }
+    //Was not needed
+//    for (Answer answer : questionToDelete.getAnswers()){
+//      answerRepository.delete(answer);
+//    }
     questionRepository.delete(questionToDelete);
     return new ResponseEntity<>(questionMapper.entityToDto(questionToDelete), HttpStatus.OK);
   }
